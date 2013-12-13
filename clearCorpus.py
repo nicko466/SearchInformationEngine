@@ -23,4 +23,25 @@ def clearCorpus ():
     clearFile("corpus/italian.txt","corpus/italianClear.txt")
     clearFile("corpus/english.txt","corpus/englishClear.txt")
     
-clearCorpus()
+def calculPiwi (path):
+    file = open(path,"r")
+    nbCar =0
+    nbWord = 0
+    tabPiWi= {}
+    for line in file:
+        for word in line.split(" "):
+            nbWord+=1
+            print word
+            for car in word:
+                nbCar+=1
+                print car
+                if car in tabPiWi.keys():
+                    tabPiWi[car]+=1
+                else:
+                    tabPiWi[car]=1
+    print "nbCar",nbCar,"nbWord", nbWord, "tab",tabPiWi
+    
+
+#clearCorpus()
+calculPiwi("corpus/englishClear.txt")
+
