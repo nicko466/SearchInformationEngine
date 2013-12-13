@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation de hash.c/hash.h</TITLE>
+</HEAD>
+<BODY>
+<H1>Documentation de hash.c/hash.h</H1>
+
+<p><tt>hash.c/hash.h</tt> est un module qui implémente une version simple de table de hachage. Vous pouvez l'utiliser comme une «&nbsp;boîte noire&nbsp;». Les éléments contenus dans les tables sont des chaînes de caractères sans valeur associée.
+
+<p>Structure <tt>HASH</tt> : elle contient les informations relatives à une table de hachage. Vous n'accédez pas directement à son contenu, vous y accédez
+uniquement au travers des fonctions fournies.
+
+<p><tt>int hash_init(HASH *hash, int size)</tt> : cette fonction initialise une table de hachage pointée par <tt>hash</tt> avec une taille de <tt>size</tt> éléments. Le fonctionnement sera optimal si vous choisissez une taille de table de 1,5 à 2 fois la taille maximum des éléments (uniques) à stocker. Elle retourne SUCCESS en cas de réussite et FAILURE en cas d'échec (SUCCESS et FAILURE sont définis dans <tt>hash.h</tt>).
+
+<p><tt>int hash_add(char *term, HASH *hash)</tt> : cette fonction ajoute la chaîne de caractères <tt>term</tt> à la table pointée par <tt>hash</tt>. Elle retourne SUCCESS en cas de réussite et FAILURE en cas d'échec.
+
+<p><tt>int hash_entries(HASH *hash)</tt> : cette fonction retourne le nombre
+d'entrées uniques dans la table pointée par <tt>hash</tt>.
+
+<p><tt>int hash_sort(HASH *hash)</tt> : cette fonction trie par ordre
+alphabétique les entrées uniques de la table pointée par <tt>hash</tt>. Elle retourne SUCCESS en cas de réussite et FAILURE en cas d'échec.
+
+<p><tt>char **hash_list(HASH *hash)</tt> : cette fonction retourne la liste
+des entrées uniques dans la table pointée par <tt>hash</tt>. Elle retourne un pointeur nul en cas d'échec.
+
+<p><tt>int hash_test(char *term, HASH *hash)</tt> : cette fonction retourne 1 si la chaîne de caractères <tt>term</tt> est présente dans la table pointée par <tt>hash</tt> et 0 sinon.
+
+<p><tt>int hash_num(char *term, HASH *hash)</tt> : cette fonction retourne l'indice de la chaîne de caractères <tt>term</tt> si elle est présente dans la table pointée par <tt>hash</tt> et -1 sinon.
+
+<p>Vous n'avez normalement pas besoin des autres fonctions de ce module.
+
+</BODY>
+</HTML>
