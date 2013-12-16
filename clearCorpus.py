@@ -31,10 +31,8 @@ def calculPiwi (path):
     for line in file:
         for word in line.split(" "):
             nbWord+=1
-            print word
             for car in word:
                 nbCar+=1
-                print car
                 if car in tabPiWi.keys():
                     tabPiWi[car]+=1
                 else:
@@ -43,5 +41,5 @@ def calculPiwi (path):
     
 
 #clearCorpus()
-calculPiwi("corpus/englishClear.txt")
+# calculPiwi("corpus/englishClear.txt")
 
