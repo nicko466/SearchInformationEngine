@@ -16,7 +16,7 @@ class Fichier :
         self.calculPiwi()
 
     def __repr__(self):
-        return "{nom fichier : "+self.nameFichier+" nombre de mots ： "+str(self.nbMots)+" nombre de caracteres : "+str(self.nbCaracteres)+" }"
+        return "{nom fichier : "+self.nameFichier+" nombre de mots ： "+str(self.nbMots)+" nombre de caracteres : "+str(self.nbCaracteres)+" proba "+str(self.proba)+"}"
 
     def calculPiwi (self):
         file = open(self.nameFichier,"r")
@@ -34,6 +34,8 @@ class Fichier :
                         tabPiWi[car]+=1
                     else:
                         tabPiWi[car]=1
+        for k in tabPiWi:
+            tabPiWi[k] = float(tabPiWi[k])/float(nbCar)
         self.nbMots = nbWord
         self.nbCaracteres = nbCar
         self.proba = tabPiWi
